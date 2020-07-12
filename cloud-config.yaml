@@ -39,9 +39,9 @@ write_files:
     content: |
       [Unit]
       Description=openresty (Docker)
-      After=docker-network@ptpb.service
+      After=docker-network@devmrc.com
       After=varnish.service
-      Requires=docker-network@ptpb.service
+      Requires=docker-network@devmrc.com
       Requires=varnish.service
 
       [Service]
@@ -68,8 +68,8 @@ write_files:
     content: |
       [Unit]
       Description=mongo (Docker)
-      After=docker-network@ptpb.service
-      Requires=docker-network@ptpb.service
+      After=docker-network@devmrc.com
+      Requires=docker-network@devmrc.com
 
       [Service]
       TimeoutStartSec=0
@@ -93,9 +93,9 @@ write_files:
     content: |
       [Unit]
       Description=pb (Docker)
-      After=docker-network@ptpb.service
+      After=docker-network@devmrc.com
       After=mongo.service
-      Requires=docker-network@ptpb.service
+      Requires=docker-network@devmrc.com
       Requires=mongo.service
 
       [Service]
@@ -119,9 +119,9 @@ write_files:
     content: |
       [Unit]
       Description=pb (Docker)
-      After=docker-network@ptpb.service
+      After=docker-network@devmrc.com
       After=pb.service
-      Requires=docker-network@ptpb.service
+      Requires=docker-network@devmrc.com
       Requires=pb.service
 
       [Service]
@@ -141,7 +141,7 @@ write_files:
 
 runcmd:
   - systemctl daemon-reload
-  - systemctl start docker-network@ptpb.service
+  - systemctl start docker-networkdevmrc.com
   - systemctl start mongo.service
   - systemctl start pb.service
   - systemctl start openresty.service
