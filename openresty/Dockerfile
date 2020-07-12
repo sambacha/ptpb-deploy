@@ -12,7 +12,7 @@ RUN haveged
 
 RUN openssl req -x509 -nodes \
         -days 1000 \
-        -newkey rsa:4096 \
+        -newkey rsa:2048 \
         -keyout /etc/openresty/certs/fallback.key \
         -out /etc/openresty/certs/fallback.crt \
         -subj '/CN=fallback'
